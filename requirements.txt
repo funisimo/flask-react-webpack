@@ -1,0 +1,14 @@
+Flask
+mock
+google-auth
+pytest
+google-cloud-ndb
+bcrypt
+sendgrid
+google-cloud-tasks
+requests
+bleach
+fastapi
+a2wsgi
+werkzeug
+flask_cors

@@ -1,0 +1,22 @@
+runtime: python37
+
+# automatic scaling, read these resources:
+# https://cloud.google.com/appengine/docs/standard/python3/config/appref
+# https://medium.com/@i.gorton/dont-accept-the-defaults-how-to-reduce-costs-with-google-app-engine-autoscaling-316af4804a01
+automatic_scaling:
+  target_cpu_utilization: 0.7
+  target_throughput_utilization: 0.8
+  max_concurrent_requests: 75
+
+handlers:
+- url: /static
+  static_dir: build/static
+- url: /.*
+  secure: always
+  script: auto
+
+env_variables:
+  MY_GAE_REGION: "europe-west1"  # if your region is europe-west, you need to add 1 at the end (same for us-central1)
+  MY_APP_URL: "https://mysuper.webapp"
+  MY_APP_EMAIL: "info@your.webapp"
+  MY_APP_NAME: "My Web App"

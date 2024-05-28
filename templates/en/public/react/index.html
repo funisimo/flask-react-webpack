@@ -1,0 +1,10 @@
+{% extends lang+"/public/base.html" %}
+
+{% block title %}Hello{% endblock title %}
+
+{% block content %}
+    {% block react %}
+        <script defer="defer" src="{{ reactMainJsPath }}" ></script>
+        <div id="react-app"></div>
+    {% endblock react %}
+{% endblock content %}
