@@ -29,20 +29,19 @@ app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
     '/api': ASGIMiddleware(main.api),
 })
 
-
-# react static resources
-# @app.route('/react', defaults={'path': 'index.html'})
-# @app.route('/react/<path:path>')
-# def react(path):
-#     return send_from_directory(app.static_folder, path)
-
 # React main bundle entry
 @public_handler
 @app.route('/react', defaults={'path': 'manifest.json'})
 @app.route('/react/<path:path>')
 def react(path):
     manifestJson = json.load(open(app.root_path + reactBuildPath + '/' + path))
-    return public_main.react(manifestJson['main.js'])
+    return (public_main.react(manifestJson['main.js']))
+
+
+@public_handler
+@app.route('/scichart2d.data')
+def scichardata():
+    return send_from_directory(app.root_path + reactBuildPath + '/', 'scichart2d.data')
 
 
 # React static resource loading

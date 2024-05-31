@@ -4,6 +4,7 @@ const { merge } = require('webpack-merge');
 const webpack = require('webpack');
 const path = require('path');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
+const CopyPlugin = require("copy-webpack-plugin");
 
 const manifestOptions = {
   filter (file) {
@@ -76,6 +77,14 @@ const common = {
     ]
   },
   plugins: [
+      new CopyPlugin({
+            patterns: [
+                { from: "node_modules/scichart/_wasm/scichart2d.data", to: "" },
+                { from: "node_modules/scichart/_wasm/scichart2d.wasm", to: "" },
+                { from: "node_modules/scichart/_wasm/scichart3d.data", to: "" },
+                { from: "node_modules/scichart/_wasm/scichart3d.wasm", to: "" },
+            ],
+        }),
     new WebpackManifestPlugin(manifestOptions),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin(htmlConfig),
