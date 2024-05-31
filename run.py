@@ -31,13 +31,7 @@ def emulator_started(port="8001"):
 # register the Exit handler
 atexit.register(exit_handler)
 
-if "test" in sys.argv:
-    test = "yes"
-elif "app" in sys.argv:
-    test = "no"
-else:
-    # Ask user if they want to run a web app or tests
-    test = input("Would you like to run tests? (yes/no; default is no): ")
+test = "no"
 
 # Prepare the correct port number and the main command based on the user's input
 if test == "yes":
