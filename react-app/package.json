@@ -32,8 +32,8 @@
   },
   "scripts": {
     "start": "webpack --config webpack.config.js --mode=development --watch",
-    "start:dev": "webpack-dev-server --port 9000 --history-api-fallback --mode=development",
-    "build": "webpack --config webpack.config.js --mode=production",
+    "start:dev": "webpack-dev-server --port 9000 --mode=development",
+    "build": "webpack --config webpack-dev.config.js",
     "start-react": "react-scripts start",
     "build-react": "react-scripts build",
     "test": "react-scripts test",

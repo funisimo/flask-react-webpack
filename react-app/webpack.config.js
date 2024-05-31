@@ -33,8 +33,8 @@ const common = {
 
   output: {
     path: paths.build,
-    filename: 'bundle.[hash].js',
-    publicPath: '/react/build/',
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   performance: {
     hints: false,
@@ -95,18 +95,10 @@ const devSettings = {
   devtool: 'eval-source-map',
   devServer: {
     client: {
-      logging: 'info',
+      logging: 'error',
     },
     historyApiFallback: false,
     compress: true,
-    port: 9000,
-    devMiddleware: {
-      index: true,
-      mimeTypes: { phtml: 'text/html' },
-      publicPath: '/',
-      serverSideRender: true,
-      writeToDisk: true,
-    },
   },
   plugins: [
     new WebpackManifestPlugin(manifestOptions),
