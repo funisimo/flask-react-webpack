@@ -103,7 +103,7 @@ const devSettings = {
     devMiddleware: {
       index: true,
       mimeTypes: { phtml: 'text/html' },
-      publicPath: '/build/',
+      publicPath: '/',
       serverSideRender: true,
       writeToDisk: true,
     },
