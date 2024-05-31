@@ -43,3 +43,5 @@ with: ```npm i```
 To run application:
 ```python3 run.py```
 
+For Running react app use: ```npm run start``` to run in dev mode
+
